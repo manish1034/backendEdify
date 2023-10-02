@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const Cors = require("cors");
 const cookieParser = require("cookie-parser");
 const authRouter = require("./routes/auth");
 const apiRouter = require("./routes/api")
@@ -12,9 +13,11 @@ dotenv.config();
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true}).then(result => {
     console.log('Database connected...');
 }) 
+const Option = { origin: "*", methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], Credentials: true}
 
 // middleware
 app.use(express.json());
+app.use(Cors(Option));
 app.use(helmet());
 app.use(morgan("common"));
 app.use(cookieParser());

@@ -36,7 +36,6 @@ const studentSchema = new Schema(
       default: "",
     },
     inWhat: {
-      default: "fill this field fast",
       type: String,
       enum: ["school", "college"],
       required: true,
@@ -46,14 +45,14 @@ const studentSchema = new Schema(
       enum: ["6", "7", "8", "9", "10", "11", "12"],
       required: function () {
         return this.in === "school";
-      },
+      }
     },
     collegestudent: {
       type: String,
       enum: ["Btech", "Bsc"],
       required: function () {
         return this.in === "college";
-      },
+      }
     },
     socialacc: [
       {
