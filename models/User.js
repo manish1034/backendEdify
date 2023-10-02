@@ -29,7 +29,7 @@ const studentSchema = new Schema(
     },
     contact: {
       type: Number,
-      default: "",
+      default: " ",
     },
     age: {
       type: Number,
