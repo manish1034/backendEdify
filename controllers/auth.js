@@ -65,7 +65,7 @@ exports.register = async(req, res, next)=>{
         const user = await newStudent.save();
         res.status(200).json(user);
     } catch (e) {
-        console.log(e);
+        console.log(e, "erdtyu");
     }
 };
 
